@@ -1,12 +1,15 @@
+#pragma once
+
 #include "b_part.hpp"
 
 class LPart{
     BPart *bPart;
-    BaseFunction *v;
+    ShiftFunction u;
 
-    double calculateLPart();
+    double calculateLPart(BaseFunction *v);
 
     public:
-        LPart(BPart *bPart, BaseFunction *v): bPart(bPart), v(v) {}
-        double calculateValue();
+        LPart(BPart *bPart) : bPart(bPart) {}
+
+        double calculateValue(BaseFunction *v);
 };
