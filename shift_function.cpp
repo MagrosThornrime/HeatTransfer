@@ -2,8 +2,15 @@
 
 
 double ShiftFunction::getValueOf(double x){
-    return 3.0 * x / 2.0;
+    if(x < xMax - h - epsilon || x > xMax + epsilon){
+        return 0.0;
+    }
+    return 3.0 * (x - xMax + h) / h;
 }
+
 double ShiftFunction::getDifferentialOf(double x){
-    return 3.0 / 2.0;
+    if(x < xMax - h - epsilon || x > xMax + epsilon){
+        return 0.0;
+    }
+    return 3.0 / h;
 }

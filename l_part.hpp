@@ -4,12 +4,12 @@
 
 class LPart{
     BPart *bPart;
-    ShiftFunction u;
+    ShiftFunction *uTilde;
 
     double calculateLPart(BaseFunction *v);
 
     public:
-        LPart(BPart *bPart) : bPart(bPart) {}
+        LPart(BPart *bPart, ShiftFunction *uTilde) : bPart(bPart), uTilde(uTilde) {}
 
         double calculateValue(BaseFunction *v);
 };
