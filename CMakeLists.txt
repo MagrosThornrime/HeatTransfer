@@ -9,7 +9,8 @@ add_executable(MES src/main.cpp
                 src/base_function.cpp
                 src/l_part.cpp
                 src/shift_function.cpp
-                src/solver.cpp)
+                src/solver.cpp
+                src/k_function.cpp)
 
 add_compile_options(-fsanitize=address)
 add_link_options(-fsanitize=address)

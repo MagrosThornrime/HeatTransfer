@@ -8,16 +8,14 @@ double BPart::calculateQuadrature(Function1D *func1, Function1D *func2, double i
     coefficient2 = (integralMaxX + integralMinX) / 2.0;
     x1 = coefficient1 * (1.0 / std::sqrt(3.0)) + coefficient2;
     x2 = coefficient1 * (-1.0 / std::sqrt(3.0)) + coefficient2;
-    fx1 = func1->getDifferentialOf(x1) * func2->getDifferentialOf(x1);
-    fx2 = func1->getDifferentialOf(x2) * func2->getDifferentialOf(x2);
+    fx1 = func1->getDifferentialOf(x1) * func2->getDifferentialOf(x1) * kFunc->getValueOf(x1);
+    fx2 = func1->getDifferentialOf(x2) * func2->getDifferentialOf(x2) * kFunc->getValueOf(x2);
     return coefficient1 * (fx1 + fx2);
 }
 
 
 double BPart::calculateIntegralPart(Function1D *w, Function1D *v){
     double wMinX, wMaxX, vMinX, vMaxX, integralMinX, integralMaxX;
-    double x1, x2, coefficient1, coefficient2;
-    double fx1, fx2;
 
     // check for section where both functions have non-zero values
     wMinX = w->minPossibleX();
@@ -43,4 +41,12 @@ double BPart::calculateProductPart(Function1D *func1, Function1D *func2){
 
 double BPart::calculateValue(Function1D *w, Function1D *v){
     return calculateProductPart(w, v) - calculateIntegralPart(w, v);
+}
+
+BPart::BPart(){
+    kFunc = new KFunction(0.0, 2.0);
+}
+
+BPart::~BPart(){
+    delete kFunc;
 }

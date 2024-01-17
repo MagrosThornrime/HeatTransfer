@@ -1,4 +1,6 @@
 #include "solver.hpp"
+#include <iostream>
+#include <iomanip>
 
 void Solver::generateBaseFunctions(){
     double h = 2.0/(double)n;
@@ -41,6 +43,7 @@ void Solver::solve(){
         base = &(baseFunctions[i]);
         rightMatrix.push_back(lPart->calculateValue(base));
     }
+
 
     // transform left matrix to an upper triangular matrix
     for(int i=0; i<n; i++){
