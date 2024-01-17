@@ -12,7 +12,7 @@ class ShiftFunction : public Function1D{
         ShiftFunction(double h, double xMax) : h(h), xMax(xMax) {}
         double getValueOf(double x) override;
         double getDifferentialOf(double x) override;
-        double getXMin() {return xMax - h;}
-        double getXMax() {return xMax;}
+        double minPossibleX() override;
+        double maxPossibleX() override;
 
 };

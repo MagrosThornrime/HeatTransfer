@@ -14,3 +14,11 @@ double ShiftFunction::getDifferentialOf(double x){
     }
     return 3.0 / h;
 }
+
+double ShiftFunction::minPossibleX(){
+    return xMax - h;
+}
+
+double ShiftFunction::maxPossibleX(){
+    return xMax;
+}

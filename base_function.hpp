@@ -1,7 +1,5 @@
 #pragma once
 #include <algorithm>
-#include <iostream>
-
 #include "function1d.hpp"
 
 
@@ -13,9 +11,9 @@ class BaseFunction : public Function1D{
 
         BaseFunction(double xMiddle, double h, double xMin, double xMax): xMiddle(xMiddle), h(h), xMin(xMin), xMax(xMax) {}
 
-        double minPossibleX();
+        double minPossibleX() override;
 
-        double maxPossibleX();
+        double maxPossibleX() override;
 
         double getValueOf(double x) override;
 

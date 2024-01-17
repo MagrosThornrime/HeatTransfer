@@ -1,10 +1,5 @@
 #pragma once
-
 #include <vector>
-#include <iostream>
-#include <iomanip>
-
-// #include "b_part.hpp"
 #include "l_part.hpp"
 
 class Solver{

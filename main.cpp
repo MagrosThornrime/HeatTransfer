@@ -25,7 +25,7 @@ void writeToFile(std::vector<double> &arguments, std::vector<double> &values, st
 
 int main(){
     const int valuesNumber = 1000;
-    const int elements = 3;
+    const int elements = 100;
     const double xMin = 0.0;
     const double xMax = 2.0;
     const bool shouldSave = true;
