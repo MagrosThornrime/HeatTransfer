@@ -1,6 +1,4 @@
 #include "solver.hpp"
-#include <iostream>
-#include <iomanip>
 
 void Solver::generateBaseFunctions(){
     double h = 2.0/(double)n;
@@ -44,14 +42,17 @@ void Solver::solve(){
         rightMatrix.push_back(lPart->calculateValue(base));
     }
 
-
     // transform left matrix to an upper triangular matrix
     for(int i=0; i<n; i++){
         // divide all values of the first row by the first non-zero element
+        if(std::abs(leftMatrix[i][i]) < epsilon){
+            continue;
+        }
         rightMatrix[i] /= leftMatrix[i][i];
         for(int j=n-1; j>=i; j--){
             leftMatrix[i][j] /= leftMatrix[i][i];
         }
+
 
         // subtract all next rows by a multiplication of the first row
         // till all their first non-zero elements are zeros
@@ -70,13 +71,14 @@ void Solver::solve(){
             rightMatrix[j] -= leftMatrix[j][i] * rightMatrix[i];
             leftMatrix[j][i] = 0.0;
         }
+
     }
 
     mainFunctionCoefficients = rightMatrix;
 }
 
 double Solver::getValue(double x){
-    double baseMin, baseMax, result, coefficient;
+    double result, coefficient;
 
     if(x < xMin - epsilon|| x > xMax + epsilon){
         return 0.0;

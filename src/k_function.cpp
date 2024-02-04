@@ -21,8 +21,8 @@ double KFunction::getValueOf(double x){
         return 1.0;
     }
     return 2.0;
-};
+}
 
 double KFunction::getDifferentialOf(double x){
     return 0.0;
-};
+}

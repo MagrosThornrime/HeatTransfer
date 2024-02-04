@@ -5,7 +5,6 @@
 
 class BPart{
 
-    const double epsilon = 0.00001;
     KFunction *kFunc;
 
     double calculateQuadrature(Function1D *func1, Function1D *func2, double integralMinX, double integralMaxX);

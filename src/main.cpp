@@ -31,8 +31,8 @@ void writeToFile(std::vector<double> &arguments, std::vector<double> &values, co
 int main(int argc, char *argv[]){
     const double X_MIN = 0.0;
     const double X_MAX = 2.0;
-    int valuesNumber;;
-    int elements;;
+    int valuesNumber;
+    int elements;
     bool shouldSave;
 
     if(!(std::istringstream(argv[1]) >> valuesNumber)){
